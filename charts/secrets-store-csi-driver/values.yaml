@@ -20,7 +20,7 @@ linux:
 
 
 windows:
-  enabled: true
+  enabled: false
   image:
     repository: us.gcr.io/k8s-artifacts-prod/csi-secrets-store/driver
     tag: v0.0.12
