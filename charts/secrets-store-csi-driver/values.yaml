@@ -6,15 +6,37 @@ linux:
     pullPolicy: Always
   kubeletRootDir: /var/lib/kubelet
   nodeSelector: {}
+  node-driver-registrar:
+    image:
+      repository: quay.io/k8scsi/csi-node-driver-registrar
+      tag: v1.2.0
+      pullPolicy: Always
+  liveness-probe:
+    image:
+      repository: quay.io/k8scsi/livenessprobe
+      tag: v2.0.0
+      pullPolicy: Always
+
+
 
 windows:
-  enabled: false
+  enabled: true
   image:
     repository: us.gcr.io/k8s-artifacts-prod/csi-secrets-store/driver
     tag: v0.0.12
     pullPolicy: IfNotPresent
   kubeletRootDir: C:\var\lib\kubelet
   nodeSelector: {}
+  node-driver-registrar:
+    image:
+      repository: mcr.microsoft.com/oss/kubernetes-csi/csi-node-driver-registrar
+      tag: v1.2.1-alpha.1-windows-1809-amd64
+      pullPolicy: Always
+  liveness-probe:
+    image:
+      repository: mcr.microsoft.com/oss/kubernetes-csi/livenessprobe
+      tag: v2.0.1-alpha.1-windows-1809-amd64
+      pullPolicy: Always
 
 logLevel:
   debug: true
